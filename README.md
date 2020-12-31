@@ -1,4 +1,4 @@
-# ClassySORT
+# ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
 ClassySORT is a real-time multi-object tracker (MOT) that works for any kind of object (not just people).
 
 ClassySORT is designed to be a simple MOT to use for your own projects. And bcause the YOLO detector pretrained on COCO, ClassySORT can detect and track 80 different kinds of common objects 'out of the box'. No supercomputer needed to use ClassySORT.
@@ -31,6 +31,9 @@ NOTE: The saved results.txt is not MOT compliant.
 
 The original implementation of SORT threw away YOLO's object class information (0: person, 1: bike, etc.).
 I wanted to keep that information, so I added a `detclass` attribute to `KalmanBoxTracker` object in `sort.py`.
+![modifications_to_sort_schematic](assets/modded-sort.png)
+
+
 With this modification, SORT returns tracked detections in the format:
 `[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
 
