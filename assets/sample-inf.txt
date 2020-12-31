@@ -1,0 +1,21 @@
+$ python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img
+
+...
+
+torch.Size([640, 1080]) - 1 person - 2 bicycle Done. (0.00942351224562)
+saving img!
+saving video!
+video 1/1 (234/250) /path/to/video.mp4
+
+Input into SORT:
+[[	1308	530		1567	834		0.89697		1]
+[	1317	283		1552	698		0.8501		0]
+[	732		495		753		537		0.35449		1]]
+
+Output from SORT:
+[[	1322.2	278.85	1546.5	701.64		1		29]
+[	733.19	494.52	751.8	536.72		0		16]
+[	1315.3	527.35	1559.1	835.45		1		2]]
+
+...
+

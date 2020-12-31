@@ -1,0 +1,13 @@
+class KalmanBoxTracker(object):
+    '''
+    This class represents the internal state of individual objects observed as bbox
+    '''
+    def __init__(self, bbox):
+        ...
+        self.detclass = bbox[5] #detected object class is stored as object attribute
+
+    def update(self, bbox):
+        ...
+        
+    def predict(self):
+        ...
