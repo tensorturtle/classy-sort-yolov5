@@ -131,3 +131,6 @@ dmypy.json
 #PyTorch weights
 .pt
 .pth
+
+#Video files (output)
+.mp4
