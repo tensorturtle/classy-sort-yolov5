@@ -27,12 +27,11 @@ To run the tracker on your own video, run:
 
 `python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img`
 
-**Options:**
-+ `--view-img`: opens an opencv-powered live video viewer
-+ `--save-txt` saves detections in the following non-MOT compliant format: 
-`[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
-+ `--save-img`: save video to `/inference/output`
-+ for other options, see 
+To get a summary of arguments run:
+
+`python classy_track.py -h`
+
+**An example output from an inference session:**
 
 ![classy_track](assets/sample_inf.png)
 
