@@ -17,12 +17,13 @@ If you only need to track people, or have the resources to train a model from sc
 ## Using ClassySORT
 
 ### Install Requirements
-Python 3.8 or later with all requirements.txt. To install un:
+Python 3.8 or later with all requirements.txt. To install run:
+
 `pip install -r requirements.txt`
 
 ### Run Tracking
 
-To run the tracker on your own video, run
+To run the tracker on your own video, run:
 
 `python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img`
 
