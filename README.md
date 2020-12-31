@@ -31,6 +31,9 @@ NOTE: The saved results.txt is not MOT compliant.
 
 The original implementation of SORT threw away YOLO's object class information (0: person, 1: bike, etc.).
 I wanted to keep that information, so I added a `detclass` attribute to `KalmanBoxTracker` object in `sort.py`.
+![modifications_to_sort_schematic](assets/modded-sort.png)
+
+
 With this modification, SORT returns tracked detections in the format:
 `[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
 
