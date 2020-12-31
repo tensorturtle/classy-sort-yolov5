@@ -5,7 +5,7 @@ ClassySORT is a simple real-time multi-object tracker (MOT) that works for any k
 by Jason Sohn 
 
 
-![demo-footage](assets/velon2019-ps-gif.gif)
+![demo-footage](assets/velon2019-creds.gif)
 
 ## Introduction
 
@@ -71,4 +71,4 @@ For a 'bag of tricks' optimized version of YOLOv5 + DeepSORT, see [GeekAlexis/Fa
 ClassySORT is released under the GPL License to promote the open use of the tracker and future improvements.
 
 ## Visual Identity
-ClassySORT theme color: #7FFFD4
+ClassySORT theme color: 019973
