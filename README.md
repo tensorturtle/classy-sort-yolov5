@@ -22,6 +22,8 @@ Python 3.8 or later with all requirements.txt. To install un:
 
 ### Run Tracking
 
+Here is a sample of what ClassySORT prints while doing inference.
+
 ![classy_track](assets/sample_inf.png)
 
 NOTE: ClassySORT saves detections in the following non-MOT compliant format:
