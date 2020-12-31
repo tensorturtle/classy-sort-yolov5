@@ -9,8 +9,8 @@ by Jason Sohn
 
 ## Introduction
 ClassySORT implements 
-+[ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) with no modifications
-+[abewley/SORT](https://github.com/abewley/sort) with minor modifications
++ [ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) with no modifications
++ [abewley/SORT](https://github.com/abewley/sort) with minor modifications
 
 If you only need to track people, or have the resources to train a model from scratch with your own dataset, see 'More Complex MOTs' section below.
 
@@ -22,22 +22,35 @@ Python 3.8 or later with all requirements.txt. To install un:
 
 ### Run Tracking
 
-Here is a sample of what ClassySORT prints while doing inference.
+To run the tracker on your own video, run
+
+`python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img`
+
+Options:
++ `--view-img`: opens an opencv-powered live video viewer
++ `--save-txt` saves detections in the following non-MOT compliant format: 
+`[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
++ `--save-img`: save video to `/inference/output`
++ for other options, see 
 
 ![classy_track](assets/sample_inf.png)
 
 NOTE: ClassySORT saves detections in the following non-MOT compliant format:
-`[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
 
 ## Implementation Details
 
 ### Modifications to SORT
+
+#### 1. Class-aware Tracking
 
 The original implementation of SORT threw away YOLO's object class information (0: person, 1: bike, etc.).
 I wanted to keep that information, so I added a `detclass` attribute to `KalmanBoxTracker` object in `sort.py`:
 
 ![modifications_to_sort_schematic](assets/sort-mod.png)
 
+#### 2. Kalman Filter parameters
+
+I found that for my own dataset in which bounding boxes change size fairly quickly, the default Q value (process covariance) was too low. I recommend you try experimenting with them.
 
 
 ## More Complex MOTs
