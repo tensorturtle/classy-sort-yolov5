@@ -83,7 +83,7 @@ def compute_color_for_labels(label):
     return tuple(color)
 
 
-def draw_boxes(img, bbox, identities=None, offset=(0, 0)):
+def draw_boxes(img, bbox, identities=None, categories=None,offset=(0, 0)):
     for i, box in enumerate(bbox):
         x1, y1, x2, y2 = [int(i) for i in box]
         x1 += offset[0]
@@ -91,9 +91,13 @@ def draw_boxes(img, bbox, identities=None, offset=(0, 0)):
         y1 += offset[1]
         y2 += offset[1]
         # box text and bar
+        cat = int(categories[i]) if categories is not None else 0
+        
         id = int(identities[i]) if identities is not None else 0
+        
         color = compute_color_for_labels(id)
-        label = '{}{:d}'.format("", id)
+        
+        label = 'id:{:d}|class{:d}'.format(id, cat)
         t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 2, 2)[0]
         cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
         cv2.rectangle(
@@ -202,7 +206,8 @@ def detect(opt, *args):
             if len(tracked_dets)>0:
                 bbox_xyxy = tracked_dets[:,:4]
                 identities = tracked_dets[:, -1]
-                draw_boxes(im0, bbox_xyxy, identities)
+                categories = tracked_dets[:, -2]
+                draw_boxes(im0, bbox_xyxy, identities, categories)
             # Write detections to file. NOTE: Not MOT-compliant format.
             if save_txt and len(tracked_dets) != 0:
                 for j, tracked_dets in enumerate(tracked_dets):
