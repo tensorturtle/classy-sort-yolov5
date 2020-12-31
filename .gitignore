@@ -134,3 +134,6 @@ dmypy.json
 
 #Video files (output)
 *.mp4
+
+#output folder
+inference/output/
