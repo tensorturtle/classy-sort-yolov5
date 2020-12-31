@@ -2,7 +2,7 @@
 
 ## Introduction
 ClassySORT is a real-time multi-object tracker that can track any kind of object without additional training.
-It implements [ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) and [abewleySORT](https://github.com/abewley/sort), with no modifications to YOLOv5 and minor modifications to SORT.
+It implements [ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) and [abewley/SORT](https://github.com/abewley/sort), with no modifications to YOLOv5 and minor modifications to SORT.
 
 If you only need to track people, or have the resources to train a model from scratch with your own dataset,
 then I recommend [bostom/Yolov5_DeepSort_PyTorch](https://github.com/mikel-brostrom/Yolov5_DeepSort_Pytorch).
