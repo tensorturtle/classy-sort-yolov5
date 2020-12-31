@@ -1,5 +1,5 @@
 # ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
-ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object (not just people).
+ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
 
 ClassySORT is designed to be a simple MOT for use on your own projects. And bcause the YOLO detector is pretrained on COCO, ClassySORT can detect and track 80 different kinds of common objects 'out of the box'. No supercomputer needed.
 
