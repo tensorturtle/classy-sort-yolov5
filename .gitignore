@@ -129,8 +129,8 @@ dmypy.json
 .pyre/
 
 #PyTorch weights
-.pt
-.pth
+*.pt
+*.pth
 
 #Video files (output)
-.mp4
+*.mp4
