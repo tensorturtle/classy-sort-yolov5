@@ -22,20 +22,19 @@ Python 3.8 or later with all requirements.txt. To install un:
 
 ### Run Tracking
 
-NOTE: The saved results.txt is not MOT compliant.
+![classy_track](assets/sample_inf.png)
 
+NOTE: ClassySORT saves detections in the following non-MOT compliant format:
+`[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
 
 ## Implementation Details
 
 ### Modifications to SORT
 
 The original implementation of SORT threw away YOLO's object class information (0: person, 1: bike, etc.).
-I wanted to keep that information, so I added a `detclass` attribute to `KalmanBoxTracker` object in `sort.py`.
-![modifications_to_sort_schematic](assets/modded-sort.png)
+I wanted to keep that information, so I added a `detclass` attribute to `KalmanBoxTracker` object in `sort.py`:
 
-
-With this modification, SORT returns tracked detections in the format:
-`[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
+![modifications_to_sort_schematic](assets/sort-mod.png)
 
 
 
