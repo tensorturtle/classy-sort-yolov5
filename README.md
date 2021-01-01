@@ -40,7 +40,8 @@ To get a summary of arguments run:
 
 ![classy_track](assets/sample_inf.png)
 
-Note how detections are saved in a non-MOT compliant format:
+Note how detections are saved to `/inference/output/` in a non-MOT compliant format:
+
 `[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_id]`
 
 ## Implementation Details
