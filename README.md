@@ -24,17 +24,23 @@ If you only need to track people, or have the resources to train a model from sc
 ### Install Requirements
 Python 3.8 or later with all requirements.txt. To install run:
 
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
+```
 
 ### Run Tracking
 
 To run the tracker on your own video, run:
 
-`python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img`
+```bash
+python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img
+```
 
 To get a summary of arguments run:
 
-`python classy_track.py -h`
+```bash
+python classy_track.py -h
+```
 
 **An example output from an inference session:**
 
@@ -42,7 +48,9 @@ To get a summary of arguments run:
 
 Note how detections are saved to `/inference/output/` in a non-MOT compliant format:
 
-`[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_id]`
+```bash
+[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_id]
+```
 
 ## Implementation Details
 
