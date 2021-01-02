@@ -46,10 +46,12 @@ python classy_track.py -h
 
 ![classy_track](assets/sample_inf.png)
 
-Note how detections are saved to `/inference/output/` in a non-MOT compliant format:
+The text results are saved to `/inference/output/` in a non-MOT compliant format. That location in the script is also a good point to plug your own programs into.
+
+The saved text file contains the following information:
 
 ```bash
-[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_id]
+[frame_index, x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_id]
 ```
 
 ## Implementation Details
