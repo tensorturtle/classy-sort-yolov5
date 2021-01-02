@@ -1,6 +1,6 @@
 """
-    MINOR MODIFICATION FOR Watchout (HyperDomestique):
-    === START ===
+    MINOR MODIFICATION FOR ClassySORT:
+
     In the original implementation of SORT, 
     it threw away the object classification category information 
     For example, (0: person, 1: bike, etc.)
@@ -11,8 +11,9 @@
     With this modification, SORT returns data in the format:
 
     `[x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_identification]`
-    === END ====
 
+
+    ==========================================================================
 
     
     SORT: A Simple, Online and Realtime Tracker

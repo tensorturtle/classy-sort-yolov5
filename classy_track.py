@@ -83,7 +83,7 @@ def compute_color_for_labels(label):
     return tuple(color)
 
 
-def draw_boxes(img, bbox, identities=None, categories=None,offset=(0, 0)):
+def draw_boxes(img, bbox, identities=None, categories=None, names=None, offset=(0, 0)):
     for i, box in enumerate(bbox):
         x1, y1, x2, y2 = [int(i) for i in box]
         x1 += offset[0]
@@ -97,7 +97,7 @@ def draw_boxes(img, bbox, identities=None, categories=None,offset=(0, 0)):
         
         color = compute_color_for_labels(id)
         
-        label = 'id:{:d}|class{:d}'.format(id, cat)
+        label = f'{names[cat]} | {id}'
         t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 2, 2)[0]
         cv2.rectangle(img, (x1, y1), (x2, y2), color, 3)
         cv2.rectangle(
@@ -180,10 +180,10 @@ def detect(opt, *args):
             s += f'{img.shape[2:]}' #print image size and detection report
             save_path = str(Path(out) / Path(p).name)
 
-            #there used to be a 'if (there are detections in this frame)', but I decided it't not necessary. I assume DeepSORT needs time information so that's why it had it.
             # Rescale boxes from img_size (temporarily downscaled size) to im0 (native) size
             det[:, :4] = scale_coords(
                 img.shape[2:], det[:, :4], im0.shape).round()
+            
             for c in det[:, -1].unique(): #for each unique object category
                 n = (det[:, -1] ==c).sum() #number of detections per class
                 s += f' - {n} {names[int(c)]}'
@@ -207,7 +207,8 @@ def detect(opt, *args):
                 bbox_xyxy = tracked_dets[:,:4]
                 identities = tracked_dets[:, -1]
                 categories = tracked_dets[:, -2]
-                draw_boxes(im0, bbox_xyxy, identities, categories)
+                draw_boxes(im0, bbox_xyxy, identities, categories, names)
+                
             # Write detections to file. NOTE: Not MOT-compliant format.
             if save_txt and len(tracked_dets) != 0:
                 for j, tracked_dets in enumerate(tracked_dets):
