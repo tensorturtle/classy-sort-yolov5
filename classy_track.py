@@ -221,8 +221,7 @@ def detect(opt, *args):
                     
                     with open(txt_path, 'a') as f:
                         f.write(f'{frame_idx},{bbox_x1},{bbox_y1},{bbox_x2},{bbox_y2},{category},{identity}\n')
-                        
-            
+                
             print(f'{s} Done. ({t2-t1})')    
             # Stream image results(opencv)
             if view_img:
