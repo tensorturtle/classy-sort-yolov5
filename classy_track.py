@@ -220,7 +220,7 @@ def detect(opt, *args):
                     identity = tracked_dets[5]
                     
                     with open(txt_path, 'a') as f:
-                        f.write(f'{bbox_x1},{bbox_y1},{bbox_x2},{bbox_y2},{category},{identity}\n')
+                        f.write(f'{frame_idx},{bbox_x1},{bbox_y1},{bbox_x2},{bbox_y2},{category},{identity}\n')
                         
             
             print(f'{s} Done. ({t2-t1})')    
