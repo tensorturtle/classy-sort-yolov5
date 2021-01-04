@@ -202,11 +202,12 @@ def detect(opt, *args):
 
             print('Output from SORT:\n',tracked_dets,'\n')
 
+            
             # draw boxes for visualization
             if len(tracked_dets)>0:
                 bbox_xyxy = tracked_dets[:,:4]
-                identities = tracked_dets[:, -1]
-                categories = tracked_dets[:, -2]
+                identities = tracked_dets[:, 8]
+                categories = tracked_dets[:, 4]
                 draw_boxes(im0, bbox_xyxy, identities, categories, names)
                 
             # Write detections to file. NOTE: Not MOT-compliant format.
@@ -217,10 +218,13 @@ def detect(opt, *args):
                     bbox_x2 = tracked_dets[2]
                     bbox_y2 = tracked_dets[3]
                     category = tracked_dets[4]
-                    identity = tracked_dets[5]
+                    u_overdot = tracked_dets[5]
+                    v_overdot = tracked_dets[6]
+                    s_overdot = tracked_dets[7]
+                    identity = tracked_dets[8]
                     
                     with open(txt_path, 'a') as f:
-                        f.write(f'{frame_idx},{bbox_x1},{bbox_y1},{bbox_x2},{bbox_y2},{category},{identity}\n')
+                        f.write(f'{frame_idx},{bbox_x1},{bbox_y1},{bbox_x2},{bbox_y2},{category},{u_overdot},{v_overdot},{s_overdot},{identity}\n')
                 
             print(f'{s} Done. ({t2-t1})')    
             # Stream image results(opencv)

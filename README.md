@@ -42,17 +42,23 @@ To get a summary of arguments run:
 python classy_track.py -h
 ```
 
-**An example output from an inference session:**
+**An example of print outs during inference:**
 
-![classy_track](assets/sample_inf.png)
+![classy_track](assets/sort-io)
 
-The text results are saved to `/inference/output/` in a non-MOT compliant format. That location in the script is also a good point to plug your own programs into.
+The text results are saved to `/inference/output/` from the array above in a non-MOT compliant format. That location in the script is also a good point to plug your own programs into.
 
 The saved text file contains the following information:
 
 ```bash
-[frame_index, x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, object_id]
+[frame_index, x_left_top, y_left_top, x_right_bottom, y_right_bottom, object_category, u_dot, v_dot, s_dot, object_id]
 ```
+
+where
+
+u_dot: time derivative of x_center in pixels
+v_dot: time derivative of y_center in pixels
+s_dot: time derivative of scale (area of bbox) in pixels
 
 ## Implementation Details
 

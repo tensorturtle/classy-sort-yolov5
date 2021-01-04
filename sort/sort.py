@@ -122,7 +122,7 @@ class KalmanBoxTracker(object):
         self.kf.Q[-1,-1] *= 0.5
         self.kf.Q[4:,4:] *= 0.5
 
-        self.kf.x[:4] = convert_bbox_to_z(bbox)
+        self.kf.x[:4] = convert_bbox_to_z(bbox) # STATE VECTOR
         self.time_since_update = 0
         self.id = KalmanBoxTracker.count
         KalmanBoxTracker.count += 1
@@ -133,7 +133,7 @@ class KalmanBoxTracker(object):
         
         #keep yolov5 detected class information
         self.detclass = bbox[5]
-            
+        
     def update(self, bbox):
         """
         Updates the state vector with observed bbox
@@ -143,6 +143,7 @@ class KalmanBoxTracker(object):
         self.hits += 1
         self.hit_streak += 1
         self.kf.update(convert_bbox_to_z(bbox))
+        
     def predict(self):
         """
         Advances the state vector and returns the predicted bounding box estimate
@@ -167,7 +168,12 @@ class KalmanBoxTracker(object):
         np.concatenate((arr1,arr3), axis=1)
         """
         arr_detclass = np.expand_dims(np.array([self.detclass]), 0)
-        return np.concatenate((convert_x_to_bbox(self.kf.x), arr_detclass), axis=1)
+        
+        arr_u_dot = np.expand_dims(self.kf.x[4],0)
+        arr_v_dot = np.expand_dims(self.kf.x[5],0)
+        arr_s_dot = np.expand_dims(self.kf.x[6],0)
+        
+        return np.concatenate((convert_x_to_bbox(self.kf.x), arr_detclass, arr_u_dot, arr_v_dot, arr_s_dot), axis=1)
     
 def associate_detections_to_trackers(detections, trackers, iou_threshold = 0.3):
     """
@@ -295,44 +301,44 @@ def parse_args():
     return args
 
 if __name__ == '__main__':
-  # all train
-  args = parse_args()
-  display = args.display
-  phase = args.phase
-  total_time = 0.0
-  total_frames = 0
-  colours = np.random.rand(32, 3) #used only for display
-  if(display):
-    if not os.path.exists('mot_benchmark'):
-      print('\n\tERROR: mot_benchmark link not found!\n\n    Create a symbolic link to the MOT benchmark\n    (https://motchallenge.net/data/2D_MOT_2015/#download). E.g.:\n\n    $ ln -s /path/to/MOT2015_challenge/2DMOT2015 mot_benchmark\n\n')
-      exit()
+    # all train
+    args = parse_args()
+    display = args.display
+    phase = args.phase
+    total_time = 0.0
+    total_frames = 0
+    colours = np.random.rand(32, 3) #used only for display
+    if(display):
+        if not os.path.exists('mot_benchmark'):
+            print('\n\tERROR: mot_benchmark link not found!\n\n    Create a symbolic link to the MOT benchmark\n    (https://motchallenge.net/data/2D_MOT_2015/#download). E.g.:\n\n    $ ln -s /path/to/MOT2015_challenge/2DMOT2015 mot_benchmark\n\n')
+        exit()
     plt.ion()
     fig = plt.figure()
     ax1 = fig.add_subplot(111, aspect='equal')
 
-  if not os.path.exists('output'):
-    os.makedirs('output')
-  pattern = os.path.join(args.seq_path, phase, '*', 'det', 'det.txt')
-  for seq_dets_fn in glob.glob(pattern):
-    mot_tracker = Sort(max_age=args.max_age, 
-                       min_hits=args.min_hits,
-                       iou_threshold=args.iou_threshold) #create instance of the SORT tracker
+    if not os.path.exists('output'):
+        os.makedirs('output')
+    pattern = os.path.join(args.seq_path, phase, '*', 'det', 'det.txt')
+    for seq_dets_fn in glob.glob(pattern):
+        mot_tracker = Sort(max_age=args.max_age, 
+                   min_hits=args.min_hits,
+                   iou_threshold=args.iou_threshold) #create instance of the SORT tracker
     seq_dets = np.loadtxt(seq_dets_fn, delimiter=',')
     seq = seq_dets_fn[pattern.find('*'):].split(os.path.sep)[0]
     
     with open(os.path.join('output', '%s.txt'%(seq)),'w') as out_file:
-      print("Processing %s."%(seq))
-      for frame in range(int(seq_dets[:,0].max())):
-        frame += 1 #detection and frame numbers begin at 1
-        dets = seq_dets[seq_dets[:, 0]==frame, 2:7]
-        dets[:, 2:4] += dets[:, 0:2] #convert to [x1,y1,w,h] to [x1,y1,x2,y2]
-        total_frames += 1
+        print("Processing %s."%(seq))
+        for frame in range(int(seq_dets[:,0].max())):
+            frame += 1 #detection and frame numbers begin at 1
+            dets = seq_dets[seq_dets[:, 0]==frame, 2:7]
+            dets[:, 2:4] += dets[:, 0:2] #convert to [x1,y1,w,h] to [x1,y1,x2,y2]
+            total_frames += 1
 
         if(display):
-          fn = os.path.join('mot_benchmark', phase, seq, 'img1', '%06d.jpg'%(frame))
-          im =io.imread(fn)
-          ax1.imshow(im)
-          plt.title(seq + ' Tracked Targets')
+            fn = os.path.join('mot_benchmark', phase, seq, 'img1', '%06d.jpg'%(frame))
+            im =io.imread(fn)
+            ax1.imshow(im)
+            plt.title(seq + ' Tracked Targets')
 
         start_time = time.time()
         trackers = mot_tracker.update(dets)
@@ -340,17 +346,17 @@ if __name__ == '__main__':
         total_time += cycle_time
 
         for d in trackers:
-          print('%d,%d,%.2f,%.2f,%.2f,%.2f,1,-1,-1,-1'%(frame,d[4],d[0],d[1],d[2]-d[0],d[3]-d[1]),file=out_file)
-          if(display):
-            d = d.astype(np.int32)
-            ax1.add_patch(patches.Rectangle((d[0],d[1]),d[2]-d[0],d[3]-d[1],fill=False,lw=3,ec=colours[d[4]%32,:]))
+            print('%d,%d,%.2f,%.2f,%.2f,%.2f,1,-1,-1,-1'%(frame,d[4],d[0],d[1],d[2]-d[0],d[3]-d[1]),file=out_file)
+            if(display):
+                d = d.astype(np.int32)
+                ax1.add_patch(patches.Rectangle((d[0],d[1]),d[2]-d[0],d[3]-d[1],fill=False,lw=3,ec=colours[d[4]%32,:]))
 
         if(display):
-          fig.canvas.flush_events()
-          plt.draw()
-          ax1.cla()
+            fig.canvas.flush_events()
+            plt.draw()
+            ax1.cla()
 
-  print("Total Tracking took: %.3f seconds for %d frames or %.1f FPS" % (total_time, total_frames, total_frames / total_time))
+    print("Total Tracking took: %.3f seconds for %d frames or %.1f FPS" % (total_time, total_frames, total_frames / total_time))
 
-  if(display):
-    print("Note: to get real runtime results run without the option: --display")
+    if(display):
+        print("Note: to get real runtime results run without the option: --display")
