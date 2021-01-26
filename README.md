@@ -15,7 +15,7 @@ Modifying it is exactly the same process as training YOLO with your own dataset.
 
 **ClassySORT implements** 
 + [ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) with no modifications
-+ [abewley/SORT](https://github.com/abewley/sort) with minor modifications
++ [abewley/SORT](https://github.com/abewley/sort) with minor modifications 
 
 If you only need to track people, or have the resources to train a model from scratch with your own dataset, see 'More Complex MOTs' section below.
 
@@ -41,10 +41,6 @@ To get a summary of arguments run:
 ```bash
 python classy_track.py -h
 ```
-
-**An example of print outs during inference:**
-
-![classy_track](assets/sort-io)
 
 The text results are saved to `/inference/output/` from the array above in a non-MOT compliant format. That location in the script is also a good point to plug your own programs into.
 
