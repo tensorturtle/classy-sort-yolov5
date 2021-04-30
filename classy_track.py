@@ -12,7 +12,7 @@
     which increases accuracy for human detections but decreases performance slightly.
     
     
-    Copyright (C) 2020-2021 Jason Sohn triangularsalt@gmail.com
+    Copyright (C) 2020-2021 Jason Sohn tensorturtle@gmail.com
     
     
     === start GNU License ===
