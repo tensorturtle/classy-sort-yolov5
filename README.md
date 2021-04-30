@@ -52,9 +52,9 @@ The saved text file contains the following information:
 
 where
 
-u_dot: time derivative of x_center in pixels
-v_dot: time derivative of y_center in pixels
-s_dot: time derivative of scale (area of bbox) in pixels
++ u_dot: time derivative of x_center in pixels
++ v_dot: time derivative of y_center in pixels
++ s_dot: time derivative of scale (area of bbox) in pixels
 
 ## Implementation Details
 
