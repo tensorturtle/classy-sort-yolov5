@@ -4,6 +4,8 @@ ClassySORT is a simple real-time multi-object tracker (MOT) that works for any k
 
 by Jason Sohn 
 
+This is a personal project, and I welcome pull requests and feedback.
+
 
 ![demo-footage](assets/velon2019-creds.gif)
 
