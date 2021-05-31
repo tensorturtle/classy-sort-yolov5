@@ -116,10 +116,10 @@ class KalmanBoxTracker(object):
         self.kf.F = np.array([[1,0,0,0,1,0,0],[0,1,0,0,0,1,0],[0,0,1,0,0,0,1],[0,0,0,1,0,0,0],[0,0,0,0,1,0,0],[0,0,0,0,0,1,0],[0,0,0,0,0,0,1]])
         self.kf.H = np.array([[1,0,0,0,0,0,0],[0,1,0,0,0,0,0],[0,0,1,0,0,0,0],[0,0,0,1,0,0,0]])
 
-        self.kf.R[2:,2:] *= 10.
+        self.kf.R[2:,2:] *= 10. # R: Covariance matrix of measurement noise (set to high for noisy inputs -> more 'inertia' of boxes')
         self.kf.P[4:,4:] *= 1000. #give high uncertainty to the unobservable initial velocities
         self.kf.P *= 10.
-        self.kf.Q[-1,-1] *= 0.5
+        self.kf.Q[-1,-1] *= 0.5 # Q: Covariance matrix of process noise (set to high for erratically moving things)
         self.kf.Q[4:,4:] *= 0.5
 
         self.kf.x[:4] = convert_bbox_to_z(bbox) # STATE VECTOR
