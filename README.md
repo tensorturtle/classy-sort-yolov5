@@ -46,7 +46,7 @@ To get a summary of arguments run:
 python classy_track.py -h
 ```
 
-The text results are saved to `/inference/output/` from the array above in a non-MOT compliant format. That location in the script is also a good point to plug your own programs into.
+The text results are saved to `/inference/output/` from the array above in the following format. That location in the script is also a good point to plug your own programs into.
 
 The saved text file contains the following information:
 
