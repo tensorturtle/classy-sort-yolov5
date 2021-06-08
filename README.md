@@ -85,7 +85,5 @@ For a 'bag of tricks' optimized version of YOLOv5 + DeepSORT, see [GeekAlexis/Fa
 
 ## License
 
-ClassySORT is released under the GPL License to promote the open use of the tracker and future improvements.
+ClassySORT is released under the GPL License version 3 to promote the open use of the tracker and future improvements.
 
-## Visual Identity
-ClassySORT theme color: 019973
