@@ -34,10 +34,10 @@ pip install -r requirements.txt
 
 ### Run Tracking
 
-To run the tracker on your own video, run:
+To run the tracker on your own video and view the tracked bounding boxes, run:
 
 ```bash
-python classy_track.py --source /path/to/video.mp4 --view-img --save-txt --save-img
+python classy_track.py --source /path/to/video.mp4 --view-img
 ```
 
 To get a summary of arguments run:
