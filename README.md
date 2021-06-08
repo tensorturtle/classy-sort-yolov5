@@ -1,10 +1,10 @@
 # ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
 
-ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
+ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people). I created this to make it easier for people to create video object detection applications.
+
+This is a one-person free time project. Also, I am curious to find out what you're using `classy-sort-yolov5` for, so please tell me!
 
 by Jason Sohn 
-
-**This is a personal project done without any compensation on my spare time. I am willing to address Issues, but cannot make any promises for support. Like any other open source effort, kind words like "please" and "thank you" go a long way.**
 
 
 ![demo-footage](assets/velon-2019-creds.gif)
