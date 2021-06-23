@@ -21,6 +21,8 @@ Modifying it is exactly the same process as training YOLO with your own dataset.
 + [ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) with no modifications
 + [abewley/SORT](https://github.com/abewley/sort) with minor modifications 
 
+This repository uses a fixed version of YOLOv5 to ensure compatbility. Replacing the YOLOv5 code to the updated ultralytics/YOLOv5 code may result in breaking changes. If you are able to this without issues, please submit a pull request.
+
 If you only need to track people, or have the resources to train a model from scratch with your own dataset, see 'More Complex MOTs' section below.
 
 ## Using ClassySORT
