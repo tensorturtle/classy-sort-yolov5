@@ -13,7 +13,9 @@ by Jason Sohn
 
 ## Introduction
 
-ClassySORT is designed to be a simple MOT for use on your own projects. And bcause the YOLO detector is pretrained on COCO, ClassySORT can detect and track 80 different kinds of common objects 'out of the box'. No supercomputer needed.
+ClassySORT is designed to be a state-of-the-art (SOTA) multi-object tracker (MOT) for use on your own projects. And bcause the You-only-look-once algorithm (YOLO) detector is pretrained on COCO dataset, ClassySORT can detect and count and track 80 different kinds of common objects 'out of the box'.
+
+My development platform is Pop_OS! 20.04 (a fork of Ubuntu) and NVIDIA RTX2070S.
 
 Modifying it is exactly the same process as training YOLO with your own dataset. [How do I do that?](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)
 
