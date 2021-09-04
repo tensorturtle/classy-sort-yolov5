@@ -29,12 +29,27 @@ If you only need to track people, or have the resources to train a model from sc
 
 ## Using ClassySORT
 
+Clone this repository
+
+```bash
+git clone https://github.com/tensorturtle/classy-sort-yolov5.git
+cd classy-sort-yolov5
+```
+
 ### Install Requirements
+
 Python 3.8 or later with all requirements.txt. To install run:
 
 ```bash
 pip install -r requirements.txt
 ```
+
+### Download YOLOv5 weights
+
+```bash
+./download_weights.sh
+```
+This script will save yolov5 weights to `yolov5/weights/` directory.
 
 ### Run Tracking
 
