@@ -1,7 +1,6 @@
 # ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
 
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/tensorturtle/classy-sort-yolov5" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" aria-label="Star tensorturtle/classy-sort-yolov5 on GitHub">Star</a>
+<iframe src="https://ghbtns.com/github-btn.html?user=tensorturtle&repo=classy-sort-yolov5&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
 
 ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
 
