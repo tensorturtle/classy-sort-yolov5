@@ -1,7 +1,5 @@
 # ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
 
-<iframe src="https://ghbtns.com/github-btn.html?user=tensorturtle&repo=classy-sort-yolov5&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
-
 ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
 
 This is a one-person free time project. I will try to respond to Issues, but can't make any promises about support. In the open source community, 'please' and 'thank you' go a long way.
