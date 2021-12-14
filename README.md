@@ -4,11 +4,6 @@ ClassySORT is a simple real-time multi-object tracker (MOT) that works for any k
 
 This is a one-person free time project. I will try to respond to Issues, but can't make any promises about support. In the open source community, 'please' and 'thank you' go a long way.
 
-**I am curious to find out what you're using `classy-sort-yolov5` for, so please tell me if you end up using this repository!**
-
-by Jason Sohn 
-
-
 ![demo-footage](assets/velon-2019-creds.gif)
 
 ## Introduction
