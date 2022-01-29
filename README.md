@@ -1,6 +1,6 @@
 # ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
 
-by [Jason Sohn (website: jasonsohn.com)](jasonsohn.com)
+by [Jason Sohn (website: jasonsohn.com)](https://jasonsohn.com)
 
 ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
 
