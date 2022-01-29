@@ -1,8 +1,8 @@
 # ℂ𝕝𝕒𝕤𝕤𝕪𝕊𝕆ℝ𝕋
 
-ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
+by [Jason Sohn (website: jasonsohn.com)](jasonsohn.com)
 
-This is a one-person free time project. I will try to respond to Issues, but can't make any promises about support. In the open source community, 'please' and 'thank you' go a long way.
+ClassySORT is a simple real-time multi-object tracker (MOT) that works for any kind of object class (not just people).
 
 ![demo-footage](assets/velon-2019-creds.gif)
 
@@ -10,7 +10,7 @@ This is a one-person free time project. I will try to respond to Issues, but can
 
 ClassySORT is designed to be a state-of-the-art (SOTA) multi-object tracker (MOT) for use on your own projects. And bcause the You-only-look-once algorithm (YOLO) detector is pretrained on COCO dataset, ClassySORT can detect and count and track 80 different kinds of common objects 'out of the box'.
 
-My development platform is Pop_OS! 20.04 (a fork of Ubuntu) and NVIDIA RTX2070S.
+Tested on Pop_OS! 20.04 (similar to Ubuntu) and NVIDIA RTX 2070s.
 
 Modifying it is exactly the same process as training YOLO with your own dataset. [How do I do that?](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)
 
