@@ -100,5 +100,5 @@ For a 'bag of tricks' optimized version of YOLOv5 + DeepSORT, see [GeekAlexis/Fa
 ## License
 
 ClassySORT is released under the GPL License version 3 to promote the open use of the tracker and future improvements.
-This means that code from this repository cannot be used for closed source distributions,
+Among other things, this means that code from this repository cannot be used for closed source distributions,
 and you must license any derived code as GPL3 as well.
