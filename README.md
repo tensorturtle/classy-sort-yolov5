@@ -12,7 +12,7 @@ ClassySORT is designed to be a state-of-the-art (SOTA) multi-object tracker (MOT
 
 Tested on Pop_OS! 20.04 (similar to Ubuntu) and NVIDIA RTX 2070s.
 
-Modifying it is exactly the same process as training YOLO with your own dataset. [How do I do that?](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)
+Modifying it is exactly the same process as training YOLOv5 with your own dataset. [How do I do that?](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)
 
 **ClassySORT implements** 
 + [ultralytics/YOLOv5](https://github.com/ultralytics/yolov5/wiki) with no modifications
