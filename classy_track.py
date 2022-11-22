@@ -235,7 +235,7 @@ def detect(opt, *args):
             # Save video results
             if save_img:
                 print('saving img!')
-                if dataset.mode == 'images':
+                if dataset.mode == 'image':
                     cv2.imwrite(save_path, im0)
                 else:
                     print('saving video!')
